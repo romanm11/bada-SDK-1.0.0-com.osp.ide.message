@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="com.osp.ide.message.MessageListener" name="MessageListener" schema="schema/com.osp.ide.message.MessageListener.exsd"/>
+	<extension
+		point="org.eclipse.ui.views">
+		<category
+			id="com.osp.ide"
+			name="bada">
+		</category>		
+		<view
+			category="com.osp.ide"
+			class="com.osp.ide.message.view.output.Output"
+			icon="icons/View.png"
+			id="com.osp.ide.message.view.Output"
+			name="Output"
+			restorable="false">
+		</view>
+		
+		<view
+			category="com.osp.ide"
+			class="com.osp.ide.message.view.resourcemonitor.ResourceMonitor"
+			icon="icons/ResourceMonitor.png"
+			id="com.osp.ide.message.view.ResourceMonitor"
+			name="Resource Monitor"
+			restorable="false">
+		</view>
+ 	</extension>
+ 	
+ 	<extension
+		point="org.eclipse.ui.viewActions">
+		<viewContribution
+			id="com.osp.ide.message.view.output.viewContribution1"
+            targetID="com.osp.ide.message.view.Output">
+            
+		<menu
+			id="com.osp.ide.message.view.output.menu"
+			label="bada Output"
+			path="additions">
+            
+            <groupMarker
+				name="file">
+            </groupMarker>
+            <groupMarker
+				name="manager">
+			</groupMarker>
+			<groupMarker
+				name="utility">
+            </groupMarker>
+            <separator
+				name="addtions">
+			</separator>
+		</menu>
+         
+        <action
+              class="com.osp.ide.message.view.output.CommonActionDelegate"
+              icon="icons/Export.png"
+              id="com.osp.ide.message.view.output.export"
+              label="Export"
+              menubarPath="com.osp.ide.message.view.output.menu/file"
+              style="push"
+              toolbarPath="com.osp.ide.message.view.output.menu/file"
+              tooltip="Export">
+		</action>         
+        <action
+              class="com.osp.ide.message.view.output.CommonActionDelegate"
+              icon="icons/Import.png"
+              id="com.osp.ide.message.view.output.import"
+              label="Import"
+              menubarPath="com.osp.ide.message.view.output.menu/file"
+              style="push"
+              toolbarPath="com.osp.ide.message.view.output.menu/file"
+              tooltip="Import">
+        </action>
+         
+        <action
+              class="com.osp.ide.message.view.output.CommonActionDelegate"
+              icon="icons/Clear.png"
+              id="com.osp.ide.message.view.output.clear"
+              label="Clear"
+              menubarPath="com.osp.ide.message.view.output.menu/manager"
+              style="push"
+              toolbarPath="com.osp.ide.message.view.output.menu/manager"
+              tooltip="Clear">
+		</action>
+        <action
+              class="com.osp.ide.message.view.output.CommonActionDelegate"
+              icon="icons/Scroll.png"
+              id="com.osp.ide.message.view.output.scroll"
+              label="Scroll"
+              menubarPath="com.osp.ide.message.view.output.menu/manager"
+              state="false"
+              style="toggle"
+              toolbarPath="com.osp.ide.message.view.output.menu/manager"
+              tooltip="Scroll Lock">
+        </action>
+         
+         
+        <action
+              class="com.osp.ide.message.view.output.UtilityActionDelegate"
+              enablesFor="*"
+              icon="icons/Find.png"
+              id="com.osp.ide.message.view.output.find"
+              label="Find"
+              menubarPath="com.osp.ide.message.view.output.menu/utility"
+              state="true"
+              style="push"
+              toolbarPath="com.osp.ide.message.view.output.menu/utility"
+              tooltip="Find">
+		</action>
+         
+         
+        <action
+              class="com.osp.ide.message.view.output.UtilityActionDelegate"
+              enablesFor="*"
+              icon="icons/Filtering.png"
+              id="com.osp.ide.message.view.output.filter"
+              label="Filter"
+              menubarPath="com.osp.ide.message.view.output.menu/utility"
+              state="true"
+              style="push"
+              toolbarPath="com.osp.ide.message.view.output.menu/utility"
+              tooltip="Filtering Options">
+		</action>
+	</viewContribution>
+	</extension>
+	
+	<extension 
+		point="org.eclipse.ui.importWizards">
+		<wizard 
+			id="com.osp.ide.message.wizards.OSPImportWizard" 
+			name="Output Messages" 
+			category="com.osp.ide.wizards.OSPImportWizard"
+			class="com.osp.ide.message.wizards.OSPImportWizard" 
+			icon="./icons/View.png"> 
+			<description> 
+				Import Output Messages.
+			</description> 
+		</wizard> 
+	</extension>
+	
+	<extension 
+		point="org.eclipse.ui.exportWizards">
+		<category
+			id="com.osp.ide.message.wizards.OSPExportWizard"
+			name="bada">
+		</category>
+		<wizard 
+			id="com.osp.ide.message.wizards.OSPExportWizard" 
+			name="Output Messages" 
+			category="com.osp.ide.message.wizards.OSPExportWizard"
+			class="com.osp.ide.message.wizards.OSPExportWizard" 
+			icon="./icons/View.png"> 
+			<description> 
+				Export output messages to a log file on the local file system.
+			</description> 
+		</wizard> 
+	</extension>
+ </plugin>

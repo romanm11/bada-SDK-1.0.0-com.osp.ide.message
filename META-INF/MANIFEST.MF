@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: bada IDE Message Plug-in
+Bundle-SymbolicName: com.osp.ide.message;singleton:=true
+Bundle-Version: 1.0.0.v20100816
+Bundle-Activator: com.osp.ide.message.MessagePlugin
+Bundle-Vendor: Samsung Electronics
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: com.osp.ide.message,
+ com.osp.ide.message.core,
+ com.osp.ide.message.socket
+Import-Package: com.osp.ide,
+ org.eclipse.ui.dialogs
